@@ -1,15 +1,14 @@
-function memo () {
+function memo() {
   const submit = document.getElementById("submit");
   submit.addEventListener("click", (e) => {
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
     XHR.open("POST", "/posts", true);
     XHR.responseType = "json";
-    XHR.send (formData);
+    XHR.send(formData);
     XHR.onload = () => {
-      if(XHR.status != 200) {
+      if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
-      } else {
         return null;
       }
       const item = XHR.response.post;
